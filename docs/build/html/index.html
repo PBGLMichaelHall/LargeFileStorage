@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Large File Storage on Github &mdash; LFS Large File Storge in GITHUB 1.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="#" class="icon icon-home"> LFS Large File Storge in GITHUB
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Large File Storage on Github</a></li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">LFS Large File Storge in GITHUB</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home"></a> &raquo;</li>
+      <li>Large File Storage on Github</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="large-file-storage-on-github">
+<h1>Large File Storage on Github</h1>
+<dl class="field-list simple">
+<dt class="field-odd">Author</dt>
+<dd class="field-odd"><p>Michael Hall</p>
+</dd>
+<dt class="field-even">Date</dt>
+<dd class="field-even"><p>4/13/2022</p>
+</dd>
+</dl>
+<p># LargeFileStorage</p>
+<p>Large Genomic Data Sets and the Issue of File Size Limitations for Pushing to Github
+A Step-by-Step Guide</p>
+<p>Michael Hall</p>
+<p>Plant Breeding and Genetics Laboratory
+FAO/IAEA Joint Division
+Seibersdorf, Austria</p>
+<p>Created: January 2022
+Last updated: 27 January 2022</p>
+<p>Please note: This is an important note at the bottom of the title page.</p>
+<p>Contents</p>
+<p>1 Background
+2 Installing Git extension for Versioning large files
+3 Creating a new repository on Github
+4 Creating a new local Git Repository
+5 Creating a GitHub repository on your local machine
+6 Push your project to Github
+7 Cloning a Large File Repository</p>
+<p>1 Background</p>
+<p>There is an issue when a project has large files in excess of the limitation imposed on it by Github. This limitation is 0.10 Gigabytes of information. When working in the field of bioinformatics chances are you will encounter a relatively large file that exceeds this limitation. In fact, if the genome file, like a fasta file is not compressed, it is more than likely too big for GitHub to accept as a simple push. In this case I have a FASTA file that is .3791 GB and a Annotation file that is .183 GB. Therefore, the solution presents itself in the form of an open-source git extension for versioning large files. This tutorial should provide necessary steps to ensure any file no matter the size can be versioned in such a way to satisfy the upper limitations of Github. The end result being you can have your large files included in an open-source project on Github free for anyone to clone etc.</p>
+<p>2 Installing Git Extension for Versioning Large Files</p>
+<p>First it is necessary to install on your local machine the git extension for versioning Large Files using a super user command.</p>
+<p>Follow this link to download it for Linux Operating Storage
+<a class="reference external" href="https://github.com/git-lfs/git-lfs/releases/download/v3.0.2/git-lfs-linux-amd64-v3.0.2.tar.gz">https://github.com/git-lfs/git-lfs/releases/download/v3.0.2/git-lfs-linux-amd64-v3.0.2.tar.gz</a></p>
+<p>Follow this link to download for Windows Operating System</p>
+<p><a class="reference external" href="https://github.com/git-lfs/git-lfs/releases/download/v3.0.2/git-lfs-windows-v3.0.2.exe">https://github.com/git-lfs/git-lfs/releases/download/v3.0.2/git-lfs-windows-v3.0.2.exe</a>
+You should have a compressed tar ball file that you need to unpack in your downloads folder. Its extension is tar.gz.  Right click on the file and select Extract Here. If you are on a windows operating storage Right click on the file, select 7zip and select Extract Here.</p>
+<p>Navigate to the install.sh invoke the super user command to install
+<a class="reference external" href="mailto:JohnDoe&#37;&#52;&#48;JD-ubuntu">JohnDoe<span>&#64;</span>JD-ubuntu</a>: ~ /Downloads/git-lfs-linux-amd64-v3.0.2$ Sudo ./install.sh</p>
+<p>Once it is installed you can be in any environment and call it.</p>
+<p>3 Creating a new Repository on Github</p>
+<p>I’ll assume you have a GitHub account and not worry about making an account for it now. Next create a new repository on GitHub where all of your project documents will be stored. Sign into your account and navigate to your repositories tab. From there select the green button “New”. Give the repository a name and initialize it with a README file and if you want to add .gitgnore which allows you to choose which files to “ignore” and not track and finally choose a license. After clicking the green button, “Create repository”, congratulations you have successfully created something that exists now which did not before and can be found at
+<a class="reference external" href="https://github.com/YOUR_GITHUB_USER_NAME/NEW_REPOSITORY_Name">https://github.com/YOUR_GITHUB_USER_NAME/NEW_REPOSITORY_Name</a></p>
+<p>Doing this automatically creates two files a README.md and LICENSE file.</p>
+<blockquote>
+<div><p>4 Creating a GitHub repository on your local machine</p>
+</div></blockquote>
+<p>Another step is to create an EMPTY identical local Github repository. By identical I mean the file pathways from your empty project directory must match exactly otherwise there are going to be issues. For the sake of simplicity lets assume you made a new repository and named it NewtonsLaws. If this is true, then there should be a path from the internet to that repository. However, we are going to clone the repository first into the empty project directory and then copy the actual project files into it.
+<a class="reference external" href="https://github.com/JohnDoe/NewtonsLaws">https://github.com/JohnDoe/NewtonsLaws</a></p>
+<p>Install Git on Debian based platform
+<a class="reference external" href="mailto:JohnDoe&#37;&#52;&#48;JD-ubuntu">JohnDoe<span>&#64;</span>JD-ubuntu</a>: ~ /Desktop/NewtonsLaws$ Sudo apt install git-all
+Clone your Repository by invoking the following command.</p>
+<p><a class="reference external" href="mailto:JohnDoe&#37;&#52;&#48;JD-ubuntu">JohnDoe<span>&#64;</span>JD-ubuntu</a>: ~ /Desktop/$ git clone <a class="reference external" href="https://github.com/JohnDoe/NewtonsLaws.git">https://github.com/JohnDoe/NewtonsLaws.git</a></p>
+<p>These two files we discussed earlier, the README.md and LICENSE file should now have filled your empty project directory. Now we need to create or reinitialize the local git hub repository by invoking the following command.</p>
+<p><a class="reference external" href="mailto:JohnDoe&#37;&#52;&#48;JD-ubuntu">JohnDoe<span>&#64;</span>JD-ubuntu</a>: ~ /Desktop/NewtonsLaws$ git init.</p>
+<p>To confirm that the hidden Github files are there invoke the following command.</p>
+<p><a class="reference external" href="mailto:JohnDoe&#37;&#52;&#48;JD-ubuntu">JohnDoe<span>&#64;</span>JD-ubuntu</a>: ~ /Desktop/NewtonsLaws$ ls -la</p>
+<p>Now copy your project files into the reinitialized local GitHub repository.</p>
+<p><a class="reference external" href="mailto:JohnDoe&#37;&#52;&#48;JD-ubuntu">JohnDoe<span>&#64;</span>JD-ubuntu</a>: ~ /Desktop/NewtonsLaws$ cp /home/JohnDoe/BIGFASTA.fna /home/JohnDoe/Desktop/NewtonsLaws</p>
+<p>5 Track large file extensions</p>
+<p>In step 2 we installed a large file versioning storage. We are now going to call this into action by invoking the following command.</p>
+<p><a class="reference external" href="mailto:JohnDoe&#37;&#52;&#48;JD-ubuntu">JohnDoe<span>&#64;</span>JD-ubuntu</a>: ~ /Desktop/NewtonsLaws$ git lfs track “<a href="#id1"><span class="problematic" id="id2">*</span></a>.fna”</p>
+<p><a class="reference external" href="mailto:JohnDoe&#37;&#52;&#48;JD-ubuntu">JohnDoe<span>&#64;</span>JD-ubuntu</a>: ~ /Desktop/NewtonsLaws$ git lfs track “<a href="#id3"><span class="problematic" id="id4">*</span></a>.gff”</p>
+<p>Now any file extension with that ending that is pushed to Github will pass through the limitation imposed on it. Next, add a .gitattributes file that will be included in the push.</p>
+<p><a class="reference external" href="mailto:JohnDoe&#37;&#52;&#48;JD-ubuntu">JohnDoe<span>&#64;</span>JD-ubuntu</a>: ~ /Desktop/NewtonsLaws$ git add .gitattributes</p>
+<p>6 Push your Project to Github</p>
+<p>At this point you should check the status of your repository.
+<a class="reference external" href="mailto:JohnDoe&#37;&#52;&#48;JD-ubuntu">JohnDoe<span>&#64;</span>JD-ubuntu</a>: ~ /Desktop/NewtonsLaws$ git status
+You will see in red that the branch is up to date but you have untracked files.
+Now add all files of the project.
+<a class="reference external" href="mailto:JohnDoe&#37;&#52;&#48;JD-ubuntu">JohnDoe<span>&#64;</span>JD-ubuntu</a>: ~ /Desktop/NewtonsLaws$ git add .
+Recheck the status to confirm the untracked files are staged to be committed.
+<a class="reference external" href="mailto:JohnDoe&#37;&#52;&#48;JD-ubuntu">JohnDoe<span>&#64;</span>JD-ubuntu</a>: ~ /Desktop/NewtonsLaws$ git status
+You will see in green the files are ready to be committed. Commit the files now.
+<a class="reference external" href="mailto:JohnDoe&#37;&#52;&#48;JD-ubuntu">JohnDoe<span>&#64;</span>JD-ubuntu</a>: ~ /Desktop/NewtonsLaws$ git commit -m “First Commit”
+Next, Invoke the migratory command.
+<a class="reference external" href="mailto:JohnDoe&#37;&#52;&#48;JD-ubuntu">JohnDoe<span>&#64;</span>JD-ubuntu</a>: ~ /Desktop/NewtonsLaws$ git lfs migrate import –include=”<em>.fna,</em>.gff”</p>
+<p>Finally, push all the files in the project to Github.
+<a class="reference external" href="mailto:JohnDoe&#37;&#52;&#48;JD-ubuntu">JohnDoe<span>&#64;</span>JD-ubuntu</a>: ~ /Desktop/NewtonsLaws$ git push -u origin –all</p>
+<p>7 Cloning a Large File Storage Repository</p>
+<p>To clone an existing Large File Storage Repository, even for one on Github, use the following command.
+<a class="reference external" href="mailto:JohnDoe&#37;&#52;&#48;JD-ubuntu">JohnDoe<span>&#64;</span>JD-ubuntu</a>: ~ /Desktop/NewtonsLaws$ git lfs clone <a class="reference external" href="https://github.com/YOUR_GITHUB_USER_NAME/NEW_REPOSITORY_Name">https://github.com/YOUR_GITHUB_USER_NAME/NEW_REPOSITORY_Name</a></p>
+<p>So you should have all your big files back to where the clone happened.</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Michael Hall.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

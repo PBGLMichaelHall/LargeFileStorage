@@ -17,7 +17,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'QTLRiceColdTolerance'
+project = 'LFS Large File Storge in GITHUB'
 copyright = '2022, Michael Hall'
 author = 'Michael Hall'
 
